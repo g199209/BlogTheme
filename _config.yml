@@ -11,7 +11,7 @@ menu:
   所有文章: /archives/
   精华文章: /tags/Top
   标签云: /tags/
-  关于我: /about/
+  #关于我: /about/
 
 # Link to your avatar | 填写头像地址
 avatar: http://7xnwyt.com1.z0.glb.clouddn.com/global头像2.jpg
@@ -136,8 +136,8 @@ highlight_style:
   # 通过 code_block 切换内置代码高亮配色主题
 
 blockquote_style:
-  #on: true
-  blockquote: 0  # Value: 0 - 7 可选
+  on: true
+  blockquote: 4  # Value: 0 - 7 可选
   # 自定义文章「引用部分」的样式
 
 # Headings Style | 标题风格
@@ -145,19 +145,19 @@ blockquote_style:
 heading_style: 0 # Value: 0 - 2
 
 ## List style type (ul) | 无序列表项标记样式
-list_style: 0  # value: 0 - 12 可选
+list_style: 4  # value: 0 - 12 可选
 
 # 左边栏宽度 px
 left_col_width: 250
 
 # Copyright info. of post | 文末版权信息
-copyright: false
+copyright: true
 
 # Table of contents | 文章目录
 toc:
   on: true
   list_number: true # 目录序号
-  max_depth: 3  # 1 - 6 (h1-h6) 目录最大级数
+  max_depth: 4  # 1 - 6 (h1-h6) 目录最大级数
   nowrap: true # Keep title on same line | 目录标题不换行
 
 # 是否开启主页及加载头像时的动画效果
@@ -247,8 +247,8 @@ fancybox: true
 
 # Socail Share | 是否开启分享
 share: 
-  on: true
-  baidu: true
+  on: false
+  baidu: false
   addthis: false
   addthis_pubid: "ra-56ff76c972fc0cf9"
   ## Go to www.addthis.com/dashboard to get your pubid (in src of Code)
