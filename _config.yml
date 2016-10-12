@@ -201,8 +201,8 @@ open_in_new:
   tags: false # 标签
   categories: false # 分类
   article_nav: false # 导航
-  archives: true # 归档
-  mini_archives: true # 迷你归档
+  archives: false # 归档
+  mini_archives: false # 迷你归档
   menu: false # 边栏菜单
   friends: true  # 友情链接
   socail: true # 社交图标
