@@ -168,6 +168,7 @@ define([], function(){
                 var $HideWhenSearch = $("#toc, #tocButton, .post-list, #post-nav-button a:nth-child(2)");
                 var $resetButton = $("#search-form .fa-times");
                 var $resultArea = $("#local-search-result");
+				$resetButton.hide();
 
                 var getSearchFile = function(){
                     var search_path = "search.xml";
@@ -188,6 +189,11 @@ define([], function(){
                 }
                 inputArea.oninput = function(){ HideTocArea() }
                 inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+				inputArea.addEventListener('input', function(){
+					if (this.value == "") {
+						resetSearch();
+					}
+				});
 
                 resetSearch = function(){
                     $HideWhenSearch.css("visibility","initial");
