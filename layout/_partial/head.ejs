@@ -12,8 +12,14 @@
     <% if (theme.baidu_site) { %> 
         <meta name="baidu-site-verification" content="<%- theme.baidu_site %>" />
     <% } %>
+	<% if (theme.baidu_site_2) { %> 
+        <meta name="baidu-site-verification" content="<%- theme.baidu_site_2 %>" />
+    <% } %>
     <% if (theme.google_site) { %> 
         <meta name="google-site-verification" content="<%- theme.google_site %>" />
+    <% } %>
+	<% if (theme.google_site_2) { %> 
+        <meta name="google-site-verification" content="<%- theme.google_site_2 %>" />
     <% } %>
 <% } %>
 
@@ -111,6 +117,16 @@ if ( is_archive() ) {
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+	
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		bp.src = '//push.zhanzhang.baidu.com/push.js';
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+  
 <% } %>
 
 </head>

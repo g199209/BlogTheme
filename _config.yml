@@ -9,15 +9,15 @@ Yelee: "3.5"
 menu:
   主页: /
   所有文章: /archives/
-  #随笔: /tags/随笔
+  精华文章: /tags/Top
   标签云: /tags/
   关于我: /about/
 
 # Link to your avatar | 填写头像地址
-avatar: /img/avatar.png
+avatar: http://7xnwyt.com1.z0.glb.clouddn.com/global头像2.jpg
 
 # Small icon of Your site | 站点小图标地址
-favicon: /favicon.png
+favicon: /favicon.ico
 
 # Internationalization | 主题语言
 ## Change Language in SITE's _config.yml | 在站点配置中切换语言
@@ -31,7 +31,7 @@ favicon: /favicon.png
 root_url: 
 
 # Year of Site Creation | 网站成立年份
-since: 2016
+since: 2015
 
 # Social info. Bar | 社交信息展示
 ## Keep "mailto:" in Email | 设置 Email 时保留 "mailto:"
@@ -40,9 +40,9 @@ since: 2016
 ## https://github.com/hexojs/hexo-generator-feed
 
 subnav:
-  Email: "mailto:123@123.com"
+  Email: "mailto:g199209@163.com"
   #新浪微博: "sina weibo"
-  GitHub: "#"
+  GitHub: "https://github.com/g199209"
   #V2EX: "#"
   RSS: "/atom.xml"
   #知乎: "zhihu"
@@ -61,8 +61,8 @@ subnav:
   #Facebook: "#"
   #Google: "#"
   #Twitter: "#"
-  #LinkedIn: "#"
-  #QQ: "#"
+  LinkedIn: "https://www.linkedin.com/in/%E6%98%8E%E9%A3%9E-%E9%AB%98-396351125"
+  QQ: "tencent://message/?menu=yes&uin=1958185276&websitename=im.qq.com"
   #微信: "Wechat"
   #PayPal: "#"
   #StackOverflow: "#"
@@ -97,8 +97,8 @@ disqus:
   # you have set "disqus_shortname" in your site's "_config.yml" 
 
 duoshuo: 
-  #on: true
-  domain: 
+  on: true
+  domain: gaomingfei
   # 是否开启多说评论，http://duoshuo.com/create-site/
   # 使用上面网址登陆你的多说，然后创建站点，在 domain 中填入你设定的域名前半部分
   # http://<要填的部分>.duoshuo.com (domain只填上<>里的内容，不要填整个网址)
@@ -117,19 +117,19 @@ youyan:
 ## "5": show images form bg-1.jpg to bg-5.jpg in `/yelee/source/background/`
 ## "5": 显示`/yelee/source/background/`文件夹中 bg-1.jpg 到 bg-5.jpg 这5张图片
 ## "0": white-gray background | 淳朴灰白背景
-background_image: 5
+background_image: 0
 
 # Base Font Size | 字号调节
 base_font_size: 16  #px, 16 - 24
 
 ## General Color Scheme | 主题配色方案 
 ## 可用值 Value: yilia
-color_scheme: 
+color_scheme: yilia
 
 highlight_style:
   #on: true
-  inline_code: 1  # Value: 0 - 9 可选
-  code_block: 1  # Value: 0 - 4 
+  inline_code: 0  # Value: 0 - 9 可选
+  code_block: 5  # Value: 0 - 4 
   # Set inline_code to style highlight text
   # Chose a highlight theme for code block
   # 通过 inline_code 切换内置文本高亮样式
@@ -137,7 +137,7 @@ highlight_style:
 
 blockquote_style:
   #on: true
-  blockquote: 1  # Value: 0 - 7 可选
+  blockquote: 0  # Value: 0 - 7 可选
   # 自定义文章「引用部分」的样式
 
 # Headings Style | 标题风格
@@ -148,7 +148,7 @@ heading_style: 0 # Value: 0 - 2
 list_style: 0  # value: 0 - 12 可选
 
 # 左边栏宽度 px
-left_col_width: 300
+left_col_width: 250
 
 # Copyright info. of post | 文末版权信息
 copyright: true
@@ -181,13 +181,14 @@ tagcloud: true
 
 # Blogroll, Link exchange | 友情链接
 friends:
-  Hexo: https://hexo.io
-  GitHub: https://pages.github.com/
+  BAZINGA: http://caoyudong.com/
+  李德文: http://lidewen.com/
+  Netcan: http://www.netcan666.com/
   MOxFIVE: http://moxfive.xyz/
 #friends: false
 
 #是否开启“关于我”。
-aboutme: 专注于前端
+aboutme: 三尺微命，一介书生。求学于西子湖畔，老和山下，欲潜心研究嵌入式系统开发之道。然所学颇杂，对诸多方面均有涉猎，对各种技术充满热情~
 #aboutme: false
 
 # Open link in a new tab | 是否在新窗口打开链接
@@ -230,7 +231,7 @@ tab_title_change:
 ## Insatall below plugin to take effect | 使用搜索需先安装对应插件
 ## https://github.com/PaicHyperionDev/hexo-generator-search
 search: 
-  #on: true
+  on: true
   onload: false
   ## true: get search.xml file when the page has loaded
   ## false: get the file when search box gets focus
@@ -241,7 +242,8 @@ fancybox: true
 
 # Display Math(LaTeX, MathML...) | 数学公式支持
 ## https://www.mathjax.org/
-mathjax: false
+# 为优化加载速度，不使用全局配置，在需要用到的文章头部加上这一句即可
+# mathjax: true
 
 # Socail Share | 是否开启分享
 share: 
@@ -254,15 +256,17 @@ share:
 
 # 百度、谷歌站长验证。填写 HTML 标签 content
 # Site Verification for Google and Baidu. HTML label content.
-baidu_site: 
-google_site: 
+baidu_site: AFNJUAQpiH
+baidu_site_2: TAgXMVjGiL
+google_site: gGooTuKW-oc_EiB9748j3sKR9gvvSCobCZAIQeMeKy8
+google_site_2: x-QdQzgUsxty45IzJVqsU52tgF8pH9pi9Yrn3oYmyDU
 
 # Fill in Google Analytics tracking ID, #e.g. UA-XXXXX-X
 google_analytics: 
 
 # 百度统计 http://sitecenter.baidu.com/sc-web/
 # 查看代码，填入 //hm.baidu.com/hm.js? 之后的内容
-baidu_tongji: 
+baidu_tongji: 023158b4c9d97942be746fc9f5fde1da
 
 # 不蒜子网站计数设置
 # http://ibruce.info/2015/04/04/busuanzi/
