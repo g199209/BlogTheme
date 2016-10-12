@@ -238,7 +238,7 @@ search:
 
 # images viewer | 图片浏览器
 ## http://www.fancyapps.com/fancybox/
-fancybox: true
+fancybox: false
 
 # Display Math(LaTeX, MathML...) | 数学公式支持
 ## https://www.mathjax.org/
