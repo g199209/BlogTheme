@@ -64,11 +64,19 @@
 
 <% if (!index && post.comments){ %>
     <% if (theme.duoshuo.on) { %>
-      <%- partial('comments/duoshuo', {
-          key: post.path,
-          title: post.title,
-          url: config.url+url_for(post.path),
-          }) %>
+      <% if (is_post()){ %>
+  <%- partial('comments/duoshuo', {
+      key: post.slug,
+      title: post.title,
+      url: config.url+url_for(post.path)
+    }) %>
+  <% } else {%>
+  <%- partial('comments/duoshuo', {
+      key: post.path,
+      title: post.title,
+      url: config.url+url_for(post.path)
+    }) %>
+  <% } %>
     <% } else if (theme.youyan.on) { %>
         <%- partial('comments/youyan') %>
     <% } else if (theme.disqus.on) { %>
