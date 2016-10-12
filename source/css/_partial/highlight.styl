@@ -67,6 +67,7 @@ pre
     .title
         color: highlight-comment
 
+    .literal
     .variable
     .attribute
     .tag
@@ -87,16 +88,15 @@ pre
         color: highlight-red
 
     .number
-    .preprocessor
-    .built_in
-    .literal
-    .params
     .constant
     .builtin-name
     .type
     .meta
     .link 
         color: highlight-orange
+    
+    .params
+        color: highlight-aqua
 
     .attribute
         color highlight-yellow
@@ -129,19 +129,28 @@ pre
     .perl .sub
     .javascript .title
     .coffeescript .title
-    .title
     .section
         color: highlight-blue
+
+    .built_in
+    .title
+        color: highlight-blue
+        font-weight: bold
 
     .keyword
     .javascript .function
     .selector-tag
+    .label
         color: highlight-purple
 
+    .preprocessor
+        font-style: italic
+        color: highlight-green
+
     .emphasis
-         font-style: italic
+        font-style: italic
     .strong
-         font-weight: bold
+        font-weight: bold
 
 highlight-list = 0 github-gist , 6 zenburn, 7 original, 8 xcode,
                 9 androidstudio, 10 ascetic, 11 atelier-dune-light, 12 atelier-plateau-light,
