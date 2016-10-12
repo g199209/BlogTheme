@@ -1,5 +1,13 @@
 <div class="overlay"></div>
 <div class="intrude-less">
+
+	<% if (theme.search.on){ %>
+		<form id="search-form"  class="search">
+			<input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="50" placeholder="Search..." autocomplete="off" autocorrect="off">
+			<i class="fa fa-times" onclick="resetSearch()"></i>
+		</form>
+	<%}%>
+
     <header id="header" class="inner">
         <a href="<%= config.root %>" class="profilepic">
             <img src="<%- theme.root_url %><%=theme.avatar%>" class="animated zoomIn">
@@ -13,10 +21,6 @@
         <%}%>
 
         <% if (theme.search.on){ %>
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="<%= theme.search.onload %>" />
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
             <div id="local-search-result"></div>
             <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         <%}%>

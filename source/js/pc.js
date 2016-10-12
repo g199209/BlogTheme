@@ -164,7 +164,7 @@ define([], function(){
     if (yiliaConfig.search) {
         var search = function(){
             require([yiliaConfig.rootUrl + 'js/search.js'], function(){
-                var inputArea = document.querySelector("#local-search-input");
+                var inputArea = document.querySelector("#st-search-input");
                 var $HideWhenSearch = $("#toc, #tocButton, .post-list, #post-nav-button a:nth-child(2)");
                 var $resetButton = $("#search-form .fa-times");
                 var $resultArea = $("#local-search-result");
@@ -172,7 +172,7 @@ define([], function(){
                 var getSearchFile = function(){
                     var search_path = "search.xml";
                     var path = yiliaConfig.rootUrl + search_path;
-                    searchFunc(path, 'local-search-input', 'local-search-result');
+                    searchFunc(path, 'st-search-input', 'local-search-result');
                 }
 
                 var getFileOnload = inputArea.getAttribute('searchonload');
