@@ -62,7 +62,7 @@ subnav:
   #Google: "#"
   #Twitter: "#"
   LinkedIn: "https://www.linkedin.com/in/%E6%98%8E%E9%A3%9E-%E9%AB%98-396351125"
-  QQ: "tencent://message/?menu=yes&uin=1958185276&websitename=im.qq.com"
+  QQ: "http://wpa.qq.com/msgrd?v=3&uin=1958185276&site=qq&menu=yes"
   #微信: "Wechat"
   #PayPal: "#"
   #StackOverflow: "#"
@@ -117,7 +117,7 @@ youyan:
 ## "5": show images form bg-1.jpg to bg-5.jpg in `/yelee/source/background/`
 ## "5": 显示`/yelee/source/background/`文件夹中 bg-1.jpg 到 bg-5.jpg 这5张图片
 ## "0": white-gray background | 淳朴灰白背景
-background_image: 9
+background_image: 8
 
 # Base Font Size | 字号调节
 base_font_size: 16  #px, 16 - 24
