@@ -20,6 +20,7 @@ var searchFunc = function(path, search_id, content_id) {
                 };
             }).get();
             var $input = document.getElementById(search_id);
+			$(".loading-xml").hide();
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
                 var finalHTML='<ul class=\"search-result-list\">';
