@@ -1,3 +1,9 @@
+博客使用的主题，根据[Yelee](https://github.com/MOxFIVE/hexo-theme-yelee)主题更改而来。
+
+以下是原主题ReadMe文档：
+
+----------
+
 <p align="center">
     <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank">
         <img src="http://moxfive.github.io/resources/yelee-mockup.jpg">
