@@ -40,7 +40,7 @@ define([], function(){
         var tagStr = $tag?'<span class="viewer-title">'+ menuList("tags") + '</span><div class="viewer-div tagcloud" id="js-mobile-tagcloud"></div>':"";
         var friendsStr = $friends?'<span class="viewer-title">'+ menuList("friends") + '</span><div class="viewer-div friends" id="js-mobile-friends"></div>':"";
         var aboutmeStr = $aboutme?'<span class="viewer-title">'+ menuList("about") + '</span><div class="viewer-div aboutme" id="js-mobile-aboutme"></div>':"";
-		var searchStr = '<form id="search-form_mobile"  class="search_mobile"><input type="text" id="st-search-input_mobile" name="q" results="0" class="st-default-search-input_mobile" maxlength="50" placeholder="Search..." autocomplete="off" autocorrect="off"><i class="fa fa-times" onclick="resetSearch_mobile()"></i><p id="search_hint" class="search-hint">向右拖动结果至绿色打开链接~</p><div id="local-search-result_mobile"></div><p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p><p class="loading-xml">Loading XML File... <i class="fa fa-spinner fa-pulse"></i></p></form>'
+		var searchStr = '<form id="search-form_mobile"  class="search_mobile"><input type="text" id="st-search-input_mobile" name="q" results="0" class="st-default-search-input_mobile" maxlength="50" placeholder="Search..." autocomplete="off" autocorrect="off"><i class="fa fa-times" onclick="resetSearch_mobile()"></i><p id="search_hint" class="search-hint">向右滑动结果打开链接~</p><div id="local-search-result_mobile"></div><p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p><p class="loading-xml">Loading XML File... <i class="fa fa-spinner fa-pulse"></i></p></form>'
 
         $viewer.innerHTML = '<div id="viewer-box">\
         <div class="viewer-box-l">\
@@ -158,10 +158,13 @@ define([], function(){
 				var TouceArea = document.querySelector("#local-search-result_mobile");
 				var WholeView = document.querySelector("#viewer");
 				
-				var scrollStart = 0;
-				var moveStart = 0;
+				var StartY = 0;
+				var StartX = 0;
+				var MarginOffset;
 				var TouchedItem;
 				var TouchedOpen = false;
+				var ScrollVerticalLock = false;  // 垂直滚动方向锁定
+				var ScrollHorizontalLock = false;  // 水平滚动方向锁定
 				
 				TouceArea.onscroll = function(e) {
 					e.preventDefault();
@@ -171,13 +174,16 @@ define([], function(){
 					e.preventDefault();
 					
 					// 记录起始点坐标
-					var MarginOffset = parseInt(ScrollArea.style.marginTop.replace("px", ""));
+					MarginOffset = parseInt(ScrollArea.style.marginTop.replace("px", ""));
 					if (isNaN(MarginOffset)) {
 						MarginOffset =  0;
 					}
-					var currentY = e.touches[0].pageY;
-					scrollStart = currentY - MarginOffset;
-					moveStart = e.touches[0].pageX;
+					StartY = e.touches[0].pageY ;
+					StartX = e.touches[0].pageX;
+					
+					// Clear Lock
+					ScrollVerticalLock = false;
+					ScrollHorizontalLock = false;
 					
 					// 找出点击了哪个选项
 					var i;
@@ -188,14 +194,14 @@ define([], function(){
 						TouchedOpen = false;
 						for (i = 0; i < TouceArea.children[0].childNodes.length; i++) {
 							liArea = TouceArea.children[0].childNodes[i];
-							if (liArea.offsetTop > currentY) {
+							if (liArea.offsetTop > StartY) {
 								TouchedItem = TouceArea.children[0].childNodes[i - 1];
 								break;
 							}
 						}
 						// Deal Last One
 						if (!TouchedItem) {
-							if (liArea.offsetTop + liArea.clientHeight > currentY) {
+							if (liArea.offsetTop + liArea.clientHeight > StartY) {
 								TouchedItem = TouceArea.children[0].childNodes[TouceArea.children[0].childNodes.length - 1];
 							}
 						}
@@ -206,28 +212,45 @@ define([], function(){
 				TouceArea.ontouchmove = function(e) {
 					e.preventDefault();
 					
-					// 记录当前坐标
-					var Offset = e.touches[0].pageY - scrollStart;
-					var OffsetX = e.touches[0].pageX - moveStart - 25;  // 减去一个值，避免微小移动也触发事件，影响体验
-
-					// 实现垂直滚动
-					if (TouceArea.clientHeight + Offset < WholeView.clientHeight * 0.7) {
-						Offset = WholeView.clientHeight * 0.7 - TouceArea.clientHeight;
-					}
-					if (Offset > 0)
-						Offset = 0;
-					ScrollArea.style.marginTop = Offset + "px";
+					// 记录当前坐标偏移
+					var OffsetY = e.touches[0].pageY - StartY;
+					var OffsetX = e.touches[0].pageX - StartX - 20;  // 减去一个值，避免微小移动也触发事件，影响体验
 					
 					// 实现水平滑动
-					if (TouchedItem && OffsetX > 0) {
-						TouchedItem.style.marginLeft = OffsetX + "px";
-						if (OffsetX > TouchedItem.clientWidth / 2) {
-							TouchedItem.style.backgroundColor = "rgba(13,118,13,0.60)";
-							TouchedOpen = true;
-						} else {
-							TouchedItem.style.backgroundColor = "";
-							TouchedOpen = false;
+					if (ScrollHorizontalLock) {
+						if (TouchedItem && OffsetX > 0) {
+							TouchedItem.style.marginLeft = OffsetX + "px";
+							if (OffsetX > TouchedItem.clientWidth / 2) {
+								TouchedItem.style.backgroundColor = "rgba(13,118,13,0.60)";
+								TouchedOpen = true;
+							} else {
+								TouchedItem.style.backgroundColor = "";
+								TouchedOpen = false;
+							}
 						}
+						return;
+					}
+					
+					// 实现垂直滚动
+					var NewMargin = OffsetY + MarginOffset;
+					if (TouceArea.clientHeight + NewMargin < WholeView.clientHeight * 0.7) {
+						NewMargin = WholeView.clientHeight * 0.7 - TouceArea.clientHeight;
+					}
+					if (NewMargin > 0)
+						NewMargin = 0;
+					ScrollArea.style.marginTop = NewMargin + "px";
+					//默认情况也会响应垂直滚动，故ScrollVerticalLock的判断放到后面
+					if (ScrollVerticalLock) {
+						return;
+					}
+
+					// 判断滚动方向
+					if (!TouchedItem) {
+						ScrollVerticalLock = true;
+					} else if (Math.abs(OffsetY) > 15) {
+						ScrollVerticalLock = true;
+					} else if (OffsetX > 0) {
+						ScrollHorizontalLock = true;
 					}
 				}
 				
