@@ -199,8 +199,6 @@ define([], function(){
 								TouchedItem = TouceArea.children[0].childNodes[TouceArea.children[0].childNodes.length - 1];
 							}
 						}
-						if (TouchedItem) 
-							console.log(TouchedItem.children[0].innerText);
 					}
 
 				}

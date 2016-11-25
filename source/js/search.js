@@ -41,7 +41,7 @@ var searchFunc = function(path, search_id, content_id, mobile) {
 					this.score = score;
 				}
 				var SearchResultArr = new Array();
-				var tmpscore;
+				var Sumscore;
                 // perform local searching
                 datas.forEach(function(data) {
                     var content_index = [];
@@ -53,8 +53,12 @@ var searchFunc = function(path, search_id, content_id, mobile) {
                     var first_occur = -1;
                     // only match artiles with not empty titles and contents
                     if(data_title != '' && data_content != '') {
-						tmpscore = 0;
-                        keywords.forEach(function(keyword, i) {
+						Sumscore = 0;
+						var tmpscore;
+						var keyword;
+						for (var i = 0; i < keywords.length; i++) {
+							keyword = keywords[i];
+							tmpscore = 0;
                             index_title = data_title.indexOf(keyword);
                             index_content = data_content.indexOf(keyword);
 							
@@ -70,10 +74,17 @@ var searchFunc = function(path, search_id, content_id, mobile) {
 									index_content = data_content.indexOf(keyword, index_content + 1);
 								}
 							}
-                        });
+							
+							if (tmpscore == 0) {
+								Sumscore = 0;
+								break;
+							} else {
+								Sumscore += tmpscore;
+							}
+						}
                     }
                     // show search results
-                    if (tmpscore > 0) {
+                    if (Sumscore > 0) {
                         str = "<li><a href='"+ data_url +"' class='search-result-title'>"+ "> " + data.title +"</a>";
 						//if (!mobile) {
 							var content = data.content.trim().replace(/<[^>]+>/g,"");
@@ -97,7 +108,7 @@ var searchFunc = function(path, search_id, content_id, mobile) {
 							})
 							str += "<p class=\"search-result\">" + match_content +"...</p>"
 						//}
-						SearchResultArr.push(new SearchData(str, tmpscore));
+						SearchResultArr.push(new SearchData(str, Sumscore));
                     }
                 })
 				
