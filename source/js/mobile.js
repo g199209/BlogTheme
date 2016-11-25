@@ -40,10 +40,11 @@ define([], function(){
         var tagStr = $tag?'<span class="viewer-title">'+ menuList("tags") + '</span><div class="viewer-div tagcloud" id="js-mobile-tagcloud"></div>':"";
         var friendsStr = $friends?'<span class="viewer-title">'+ menuList("friends") + '</span><div class="viewer-div friends" id="js-mobile-friends"></div>':"";
         var aboutmeStr = $aboutme?'<span class="viewer-title">'+ menuList("about") + '</span><div class="viewer-div aboutme" id="js-mobile-aboutme"></div>':"";
+		var searchStr = '<form id="search-form_mobile"  class="search_mobile"><input type="text" id="st-search-input_mobile" name="q" results="0" class="st-default-search-input_mobile" maxlength="50" placeholder="Search..." autocomplete="off" autocorrect="off"><i class="fa fa-times" onclick="resetSearch_mobile()"></i><p id="search_hint" class="search-hint">向右拖动结果至绿色打开链接~</p><div id="local-search-result_mobile"></div><p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p><p class="loading-xml">Loading XML File... <i class="fa fa-spinner fa-pulse"></i></p></form>'
 
         $viewer.innerHTML = '<div id="viewer-box">\
         <div class="viewer-box-l">\
-            <div class="viewer-box-wrap">'+aboutmeStr+friendsStr+tagStr+'</div>\
+            <div class="viewer-box-wrap">'+searchStr+aboutmeStr+friendsStr+tagStr+'</div>\
         </div>\
         <div class="viewer-box-r"></div>\
         </div>';
@@ -74,6 +75,7 @@ define([], function(){
         document.ontouchstart=function(){
             return true;
         }
+		resetSearch_mobile();
     }
 
     //第四步 -- 绑定 DOM 事件
@@ -138,6 +140,175 @@ define([], function(){
             $('html, body').animate({scrollTop:0}, 'slow');
         }, false);
     };
+	
+	if (yiliaConfig.search) {
+        var search = function(){
+            require([yiliaConfig.rootUrl + 'js/search.js'], function(){
+                var inputArea = document.querySelector("#st-search-input_mobile");
+                var $HideWhenSearch = $(".viewer-title, #js-mobile-aboutme, #js-mobile-friends, #js-mobile-tagcloud");
+				var resetButton = document.querySelector("#search-form_mobile .fa-times");
+                var $resetButton = $("#search-form_mobile .fa-times");
+                var $resultArea = $("#local-search-result_mobile");
+				$resetButton.hide();
+				$("#search_hint").hide();
+				
+				// 解决搜索结果区无法滚动、点击穿透等问题
+				// 直接监听触摸事件手动处理滚动及点击事件
+				var ScrollArea = document.querySelector('.viewer-box-l');
+				var TouceArea = document.querySelector("#local-search-result_mobile");
+				var WholeView = document.querySelector("#viewer");
+				
+				var scrollStart = 0;
+				var moveStart = 0;
+				var TouchedItem;
+				var TouchedOpen = false;
+				
+				TouceArea.onscroll = function(e) {
+					e.preventDefault();
+				}
+				
+				TouceArea.ontouchstart = function(e) {
+					e.preventDefault();
+					
+					// 记录起始点坐标
+					var MarginOffset = parseInt(ScrollArea.style.marginTop.replace("px", ""));
+					if (isNaN(MarginOffset)) {
+						MarginOffset =  0;
+					}
+					var currentY = e.touches[0].pageY;
+					scrollStart = currentY - MarginOffset;
+					moveStart = e.touches[0].pageX;
+					
+					// 找出点击了哪个选项
+					var i;
+					if (TouceArea.children.length > 0) {
+						var liArea;
+						var i;
+						TouchedItem = null;
+						TouchedOpen = false;
+						for (i = 0; i < TouceArea.children[0].childNodes.length; i++) {
+							liArea = TouceArea.children[0].childNodes[i];
+							if (liArea.offsetTop > currentY) {
+								TouchedItem = TouceArea.children[0].childNodes[i - 1];
+								break;
+							}
+						}
+						// Deal Last One
+						if (!TouchedItem) {
+							if (liArea.offsetTop + liArea.clientHeight > currentY) {
+								TouchedItem = TouceArea.children[0].childNodes[TouceArea.children[0].childNodes.length - 1];
+							}
+						}
+						if (TouchedItem) 
+							console.log(TouchedItem.children[0].innerText);
+					}
+
+				}
+				
+				TouceArea.ontouchmove = function(e) {
+					e.preventDefault();
+					
+					// 记录当前坐标
+					var Offset = e.touches[0].pageY - scrollStart;
+					var OffsetX = e.touches[0].pageX - moveStart - 25;  // 减去一个值，避免微小移动也触发事件，影响体验
+
+					// 实现垂直滚动
+					if (TouceArea.clientHeight + Offset < WholeView.clientHeight * 0.7) {
+						Offset = WholeView.clientHeight * 0.7 - TouceArea.clientHeight;
+					}
+					if (Offset > 0)
+						Offset = 0;
+					ScrollArea.style.marginTop = Offset + "px";
+					
+					// 实现水平滑动
+					if (TouchedItem && OffsetX > 0) {
+						TouchedItem.style.marginLeft = OffsetX + "px";
+						if (OffsetX > TouchedItem.clientWidth / 2) {
+							TouchedItem.style.backgroundColor = "rgba(13,118,13,0.60)";
+							TouchedOpen = true;
+						} else {
+							TouchedItem.style.backgroundColor = "";
+							TouchedOpen = false;
+						}
+					}
+				}
+				
+				TouceArea.ontouchend = function(e) {
+					e.preventDefault();
+					
+					// 处理拖动打开链接事件
+					if (TouchedItem) {
+						TouchedItem.style.marginLeft = "0px";
+						TouchedItem.style.backgroundColor = "";
+						if (TouchedOpen) {
+							hide(); // 隐藏搜索框
+							// 待搜索框完全隐藏后再打开新链接，视觉效果更好点
+							window.setTimeout('window.location.href=' + '"' + TouchedItem.children[0].href + '"', 200);
+						}						
+					}
+
+					
+				}
+				
+				// 处理移动端搜索框无法点击的问题
+				inputArea.addEventListener("touchstart", function(){
+					inputArea.focus();
+				}, false);
+
+				resetButton.addEventListener("touchstart", function(){
+					$resetButton.click();
+				}, false);
+
+                var getSearchFile = function(){
+                    var search_path = "search.xml";
+                    var path = yiliaConfig.rootUrl + search_path;
+					$(".loading-xml").show(200);
+                    searchFunc(path, 'st-search-input_mobile', 'local-search-result_mobile', true);
+                }
+
+                var getFileOnload = inputArea.getAttribute('searchonload');
+                if (yiliaConfig.search && getFileOnload === "true") {
+                    getSearchFile();
+                } else {
+                    inputArea.onfocus = function(){ 
+					getSearchFile();
+					}
+                }
+
+
+                var HideTocArea = function(){
+                    $HideWhenSearch.css("visibility","hidden");
+                    $resetButton.show();
+					$("#search_hint").show();
+                }
+                inputArea.oninput = function(){ HideTocArea() }
+                inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+				inputArea.addEventListener('input', function(){
+					if (this.value == "") {
+						resetSearch_mobile();
+					}
+				});
+
+                resetSearch_mobile = function(){
+                    $HideWhenSearch.css("visibility","initial");
+                    $resultArea.html("");
+                    document.querySelector("#search-form_mobile").reset();
+                    $resetButton.hide();
+					$("#search_hint").hide();
+                    $(".no-result").hide();
+					$('.viewer-box-l').css("marginTop", "0px");
+                }
+
+                $resultArea.bind("DOMNodeRemoved DOMNodeInserted", function(e) {
+                    if (!$(e.target).text()) {
+                        $(".no-result").show(200);
+                    } else {
+                      $(".no-result").hide();
+                    }
+                })
+            })
+        }()
+    }
 
     return{
         init: function(){

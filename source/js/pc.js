@@ -193,7 +193,7 @@ define([], function(){
                     var search_path = "search.xml";
                     var path = yiliaConfig.rootUrl + search_path;
 					$(".loading-xml").show(200);
-                    searchFunc(path, 'st-search-input', 'local-search-result');
+                    searchFunc(path, 'st-search-input', 'local-search-result', false);
                 }
 
                 var getFileOnload = inputArea.getAttribute('searchonload');

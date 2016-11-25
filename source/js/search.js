@@ -5,7 +5,7 @@
 // Edited by MOxFIVE <http://github.com/MOxFIVE>
 // Edited by Mingfei Gao <http://gaomf.cn>
 
-var searchFunc = function(path, search_id, content_id) {
+var searchFunc = function(path, search_id, content_id, mobile) {
     'use strict';
     $.ajax({
         url: path,
@@ -23,7 +23,12 @@ var searchFunc = function(path, search_id, content_id) {
 			$(".loading-xml").hide();
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
-                var finalHTML='<ul class=\"search-result-list\">';
+				if (!mobile) {
+					var finalHTML='<ul class=\"search-result-list\">';
+				} else {
+					var finalHTML='<ul class=\"search-result-list_mobile\">';
+				}
+                
                 var str = "";                
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
                 $resultContent.innerHTML = "";
@@ -70,27 +75,28 @@ var searchFunc = function(path, search_id, content_id) {
                     // show search results
                     if (tmpscore > 0) {
                         str = "<li><a href='"+ data_url +"' class='search-result-title'>"+ "> " + data.title +"</a>";
-                        var content = data.content.trim().replace(/<[^>]+>/g,"");
-						// cut out characters
-						var start = first_occur - 6;
-						var end = first_occur + 6;
-						if(start < 0){
-							start = 0;
-						}
-						if(start == 0){
-							end = 10;
-						}
-						if(end > content.length){
-							end = content.length;
-						}
-						var match_content = content.substr(start, end); 
-						// highlight all keywords
-						keywords.forEach(function(keyword){
-							var regS = new RegExp(keyword, "gi");
-							match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
-						})
-						str += "<p class=\"search-result\">" + match_content +"...</p>"
-						
+						//if (!mobile) {
+							var content = data.content.trim().replace(/<[^>]+>/g,"");
+							// cut out characters
+							var start = first_occur - 6;
+							var end = first_occur + 6;
+							if(start < 0){
+								start = 0;
+							}
+							if(start == 0){
+								end = 10;
+							}
+							if(end > content.length){
+								end = content.length;
+							}
+							var match_content = content.substr(start, end); 
+							// highlight all keywords
+							keywords.forEach(function(keyword){
+								var regS = new RegExp(keyword, "gi");
+								match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+							})
+							str += "<p class=\"search-result\">" + match_content +"...</p>"
+						//}
 						SearchResultArr.push(new SearchData(str, tmpscore));
                     }
                 })
@@ -106,6 +112,7 @@ var searchFunc = function(path, search_id, content_id) {
 					finalHTML += data.str;
 				})
                 $resultContent.innerHTML = finalHTML;
+				$resultContent.focus();
             });
         }
     });
