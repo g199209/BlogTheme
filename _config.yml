@@ -11,7 +11,7 @@ menu:
   所有文章: /archives/
   精华文章: /tags/Top
   标签云: /tags/
-  #关于我: /about/
+  个人简历: /resume.pdf
 
 # Link to your avatar | 填写头像地址
 avatar: http://7xnwyt.com1.z0.glb.clouddn.com/global头像2.jpg
@@ -185,6 +185,7 @@ tagcloud: true
 friends:
   BAZINGA: http://caoyudong.com/
   李德文: http://lidewen.com/
+  焦迪: http://jiaodi.tech/
   Netcan: http://www.netcan666.com/
   MOxFIVE: http://moxfive.xyz/
 #friends: false
