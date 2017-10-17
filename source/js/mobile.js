@@ -53,7 +53,7 @@ define([], function(){
         document.getElementsByTagName("body")[0].appendChild($viewer);
         var wrap = document.getElementById("viewer-box");
         basicwrap = wrap;
-        wrap.style.height = document.body.scrollHeight + 'px';
+        // wrap.style.height = document.body.scrollHeight + 'px';
     };
 
     var show = function(target, idx){
@@ -81,7 +81,7 @@ define([], function(){
     //第四步 -- 绑定 DOM 事件
     var bindDOM = function(){
         var scaleW = scaleW;
-        
+
         //滑动隐藏
         document.getElementById("viewer-box").addEventListener("webkitTransitionEnd", function(){
 
@@ -90,7 +90,7 @@ define([], function(){
                 _isShow = true;
             }else{
             }
-            
+
         }, false);
 
         //点击展示和隐藏
@@ -140,7 +140,7 @@ define([], function(){
             $('html, body').animate({scrollTop:0}, 'slow');
         }, false);
     };
-	
+
 	if (yiliaConfig.search) {
         var search = function(){
             require([yiliaConfig.rootUrl + 'js/search.js'], function(){
@@ -151,13 +151,13 @@ define([], function(){
                 var $resultArea = $("#local-search-result_mobile");
 				$resetButton.hide();
 				$("#search_hint").hide();
-				
+
 				// 解决搜索结果区无法滚动、点击穿透等问题
 				// 直接监听触摸事件手动处理滚动及点击事件
 				var ScrollArea = document.querySelector('.viewer-box-l');
 				var TouceArea = document.querySelector("#local-search-result_mobile");
 				var WholeView = document.querySelector("#viewer");
-				
+
 				var StartY = 0;
 				var StartX = 0;
 				var MarginOffset;
@@ -165,14 +165,14 @@ define([], function(){
 				var TouchedOpen = false;
 				var ScrollVerticalLock = false;  // 垂直滚动方向锁定
 				var ScrollHorizontalLock = false;  // 水平滚动方向锁定
-				
+
 				TouceArea.onscroll = function(e) {
 					e.preventDefault();
 				}
-				
+
 				TouceArea.ontouchstart = function(e) {
 					e.preventDefault();
-					
+
 					// 记录起始点坐标
 					MarginOffset = parseInt(ScrollArea.style.marginTop.replace("px", ""));
 					if (isNaN(MarginOffset)) {
@@ -180,11 +180,11 @@ define([], function(){
 					}
 					StartY = e.touches[0].pageY ;
 					StartX = e.touches[0].pageX;
-					
+
 					// Clear Lock
 					ScrollVerticalLock = false;
 					ScrollHorizontalLock = false;
-					
+
 					// 找出点击了哪个选项
 					var i;
 					if (TouceArea.children.length > 0) {
@@ -208,14 +208,14 @@ define([], function(){
 					}
 
 				}
-				
+
 				TouceArea.ontouchmove = function(e) {
 					e.preventDefault();
-					
+
 					// 记录当前坐标偏移
 					var OffsetY = e.touches[0].pageY - StartY;
 					var OffsetX = e.touches[0].pageX - StartX - 20;  // 减去一个值，避免微小移动也触发事件，影响体验
-					
+
 					// 实现水平滑动
 					if (ScrollHorizontalLock) {
 						if (TouchedItem && OffsetX > 0) {
@@ -230,7 +230,7 @@ define([], function(){
 						}
 						return;
 					}
-					
+
 					// 实现垂直滚动
 					var NewMargin = OffsetY + MarginOffset;
 					if (TouceArea.clientHeight + NewMargin < WholeView.clientHeight * 0.7) {
@@ -253,10 +253,10 @@ define([], function(){
 						ScrollHorizontalLock = true;
 					}
 				}
-				
+
 				TouceArea.ontouchend = function(e) {
 					e.preventDefault();
-					
+
 					// 处理拖动打开链接事件
 					if (TouchedItem) {
 						TouchedItem.style.marginLeft = "0px";
@@ -265,12 +265,12 @@ define([], function(){
 							hide(); // 隐藏搜索框
 							// 待搜索框完全隐藏后再打开新链接，视觉效果更好点
 							window.setTimeout('window.location.href=' + '"' + TouchedItem.children[0].href + '"', 200);
-						}						
+						}
 					}
 
-					
+
 				}
-				
+
 				// 处理移动端搜索框无法点击的问题
 				inputArea.addEventListener("touchstart", function(){
 					inputArea.focus();
@@ -291,7 +291,7 @@ define([], function(){
                 if (yiliaConfig.search && getFileOnload === "true") {
                     getSearchFile();
                 } else {
-                    inputArea.onfocus = function(){ 
+                    inputArea.onfocus = function(){
 					getSearchFile();
 					}
                 }
