@@ -11,7 +11,7 @@ menu:
   所有文章: /archives/
   精华文章: /tags/Top
   标签云: /tags/
-  个人简历: http://7xnwyt.com1.z0.glb.clouddn.com/resume.pdf
+  RSS: /atom.xml
 
 # Link to your avatar | 填写头像地址
 avatar: http://7xnwyt.com1.z0.glb.clouddn.com/global头像2.jpg
@@ -44,7 +44,6 @@ subnav:
   #新浪微博: "sina weibo"
   GitHub: "https://github.com/g199209"
   #V2EX: "#"
-  #RSS: "/atom.xml"
   #知乎: "zhihu"
   #豆瓣: "douban"
   #简书: "jianshu"
@@ -76,6 +75,7 @@ subnav:
   #TiddlyWiki: ""
   #Tumblr: ""
   #_500px: ""
+  #RSS: "/atom.xml"
 
 # >>> Conments 评论系统 <<<
 # Chose ONE as your comment system and keep others disable.
