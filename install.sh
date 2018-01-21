@@ -7,6 +7,11 @@ mkdir ../../source/404
 ln ./404.md ../../source/404/
 echo "gaomingfei.xyz" >> ../../source/CNAME
 
+echo "Copying markdown templates..."
+rm ../../scaffolds/*
+ln ./template.md ../../scaffolds/post.md
+ln ./template.md ../../scaffolds/draft.md
+
 echo "Cloning source posts..."
 rm -r ../../source/_posts
 git clone git@github.com:g199209/BlogMarkdown.git ../../source/_posts
