@@ -16,7 +16,7 @@ var searchFunc = function(path, search_id, content_id, mobile) {
                 return {
                     title: $( "title", this ).text(),
                     content: $("content",this).text(),
-                    url: $( "url" , this).text()
+                    url: $( "link" , this).attr("href")
                 };
             }).get();
             var $input = document.getElementById(search_id);
@@ -47,7 +47,8 @@ var searchFunc = function(path, search_id, content_id, mobile) {
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url.replace("http://gaomingfei.xyz","");
+                    //var data_url = data.url.replace("http://gaomingfei.xyz","");
+					var data_url = data.url;
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
