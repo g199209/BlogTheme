@@ -17,7 +17,7 @@ menu:
 avatar: http://gmf.shengnengjin.cn/global头像2.jpg
 
 # Small icon of Your site | 站点小图标地址
-favicon: /favicon.ico
+favicon: http://gmf.shengnengjin.cn/global头像2.jpg
 
 # Internationalization | 主题语言
 ## Change Language in SITE's _config.yml | 在站点配置中切换语言
@@ -104,13 +104,21 @@ duoshuo:
   # http://<要填的部分>.duoshuo.com (domain只填上<>里的内容，不要填整个网址)
 
 youyan:
-  on: true
-  id: 2129377
+  on: false
+  id: 
   website: gaomf.cn
   # 是否开启友言评论，http://www.uyan.cc/index.php
   # id 中填写你的友言用户数字ID，注册后进入后台管理即可查看
   # 友言服务在 Web 环境下运行，普通本地环境无法查看，请部署后在线上测试。
   # website变量用于将多个域名统一到一个域名下
+  
+#5、Gitment
+gitment_owner: g199209      #你的 GitHub ID
+gitment_repo: 'g199209.github.io'          #存储评论的 repo
+gitment_oauth:
+  client_id: 'xxxxxxxxxxxxxxx'           #client ID
+  client_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx'       #client secret
+
 
 
 # >>> Style Customisation 样式自定义 <<<
@@ -191,7 +199,7 @@ friends:
 #friends: false
 
 #是否开启“关于我”。
-aboutme: 三尺微命，一介书生。求学于西子湖畔，老和山下，欲潜心研究嵌入式系统开发之道。然所学颇杂，对诸多方面均有涉猎，对各种技术充满热情~
+aboutme: 三尺微命，一介书生。曾辗转求学于思源湖畔，老和山下，现栖身于魔都一隅。所学颇杂，对诸多方面均有涉猎，对各种技术充满热情~
 #aboutme: false
 
 # Open link in a new tab | 是否在新窗口打开链接
@@ -250,10 +258,10 @@ fancybox: true
 
 # Socail Share | 是否开启分享
 share: 
-  on: false
-  baidu: false
+  on: true
+  baidu: true
   addthis: false
-  addthis_pubid: "ra-56ff76c972fc0cf9"
+  addthis_pubid: "ra-5bddc8f312d05d05"
   ## Go to www.addthis.com/dashboard to get your pubid (in src of Code)
   ## and customize AddThis share buttons
 
