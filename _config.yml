@@ -14,10 +14,10 @@ menu:
   RSS: /atom.xml
 
 # Link to your avatar | 填写头像地址
-avatar: http://gmf.shengnengjin.cn/global头像2.jpg
+avatar: https://gmf.shengnengjin.cn/global头像2.jpg
 
 # Small icon of Your site | 站点小图标地址
-favicon: http://gmf.shengnengjin.cn/global头像2.jpg
+favicon: https://gmf.shengnengjin.cn/global头像2.jpg
 
 # Internationalization | 主题语言
 ## Change Language in SITE's _config.yml | 在站点配置中切换语言
@@ -60,9 +60,9 @@ subnav:
   #Facebook: "#"
   #Google: "#"
   #Twitter: "#"
-  LinkedIn: "https://www.linkedin.com/in/%E6%98%8E%E9%A3%9E-%E9%AB%98-396351125"
+  #LinkedIn: "https://www.linkedin.com/in/%E6%98%8E%E9%A3%9E-%E9%AB%98-396351125"
   # QQ: "http://wpa.qq.com/msgrd?v=3&uin=1958185276&site=qq&menu=yes"
-  #微信: "Wechat"
+  微信: "wechat.html"
   #PayPal: "#"
   #StackOverflow: "#"
   #CodePen: ""
@@ -116,8 +116,8 @@ youyan:
 gitment_owner: g199209      #你的 GitHub ID
 gitment_repo: 'g199209.github.io'          #存储评论的 repo
 gitment_oauth:
-  client_id: 'xxxxxxxxxxxxxxx'           #client ID
-  client_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx'       #client secret
+  client_id: '813326c14fac583d3c91'           #client ID 
+  client_secret: 'f8dbfe0b2626fa098ec31a165f298a4af93c6535'       #client secret 
 
 
 
@@ -258,8 +258,8 @@ fancybox: true
 
 # Socail Share | 是否开启分享
 share: 
-  on: true
-  baidu: true
+  on: false
+  baidu: false
   addthis: false
   addthis_pubid: "ra-5bddc8f312d05d05"
   ## Go to www.addthis.com/dashboard to get your pubid (in src of Code)
