@@ -1,5 +1,7 @@
 博客使用的主题，根据[Yelee](https://github.com/MOxFIVE/hexo-theme-yelee)主题更改而来。
 
+需要先按照 [Hexo Doc](https://hexo.io/docs/) 的说明安装好 Hexo，之后将此 repository clone 至 `theme/yelee` 文件夹中。
+
 clone之后运行`install.sh`文件自动更新其余Hexo配置文件及建立相关环境。**注意：运行此文件前先自行查看此文件具体做了什么，以免误删文件。此文件主要作用是新建立一个Hexo环境后执行的初始化操作，会清空`_post`文件夹，并自动clone我备份在Github上的原始markdown文件。**
 
 以下是原主题ReadMe文档：

@@ -17,9 +17,13 @@ rm -r ../../source/_posts
 git clone git@github.com:g199209/BlogMarkdown.git ../../source/_posts
 
 echo "Installing hexo plugins..."
-sudo npm install hexo-generator-sitemap --save
-sudo npm install hexo-generator-feed --save
-sudo npm install hexo-generator-search --save
+old_path=`pwd`
+cd ../..
+npm install hexo-generator-sitemap --save
+npm install hexo-generator-feed --save
+npm install hexo-generator-search --save
+npm install hexo-deployer-git --save
+cd $old_path
 
 echo "Patching hexo-generator-search..."
 cat ./search_patch.js >> ../../node_modules/hexo-generator-search/index.js
