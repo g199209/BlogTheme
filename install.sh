@@ -4,8 +4,11 @@ echo "Copying configuration files..."
 rm ../../_config.yml
 ln ./_config_root.yml ../../_config.yml
 mkdir ../../source/404
-ln ./404.md ../../source/404/
-echo "gaomingfei.xyz" >> ../../source/CNAME
+ln ./404.md ../../source/404/404.md
+mkdir ../../source/tags
+ln ./tag_index.md ../../source/tags/index.md
+ln ./wechat.md ../../source/wechat.md
+echo "gaomf.cn" >> ../../source/CNAME
 
 echo "Copying markdown templates..."
 rm ../../scaffolds/*

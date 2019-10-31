@@ -1,8 +1,7 @@
-title: Page Not Found
+title: 微信扫一扫加好友
 toc: false
-permalink: /404
 fancybox: false
-date: 2016-10-12 15:13:00
+date: 2019-02-24 18:21:00
 
 ---
 
@@ -67,9 +66,5 @@ date: 2016-10-12 15:13:00
 ***
 
 <div class="pic">
-<img src="https://gmf.shengnengjin.cn/404.png">
+<img src="https://gmf.shengnengjin.cn/wechat.jpg">
 </div>
-
-<p class="center"><a href="/">回主页</a> · <a href="/archives">所有文章</a>
-
-<p class="center">可在边栏搜索框中对本站进行检索，以获取相关信息。</p>
