@@ -6,13 +6,13 @@
 title: 高明飞的博客
 subtitle: 澹泊明志，宁静致远
 description: 
-author: 高明飞
+author: 码农半亩地
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://gaomf.cn
+url: https://gaomf.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

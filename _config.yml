@@ -14,10 +14,10 @@ menu:
   RSS: /atom.xml
 
 # Link to your avatar | 填写头像地址
-avatar: https://gmf.shengnengjin.cn/global头像2.jpg
+avatar: https://pic.gaomf.store/global头像2.jpg
 
 # Small icon of Your site | 站点小图标地址
-favicon: https://gmf.shengnengjin.cn/global头像2.jpg
+favicon: https://pic.gaomf.store/global头像2.jpg
 
 # Internationalization | 主题语言
 ## Change Language in SITE's _config.yml | 在站点配置中切换语言
@@ -118,8 +118,6 @@ gitment_repo: 'g199209.github.io'          #存储评论的 repo
 gitment_oauth:
   client_id: '813326c14fac583d3c91'           #client ID 
   client_secret: 'f8dbfe0b2626fa098ec31a165f298a4af93c6535'       #client secret 
-
-
 
 # >>> Style Customisation 样式自定义 <<<
 
