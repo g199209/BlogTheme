@@ -22,10 +22,7 @@ git clone git@github.com:g199209/BlogMarkdown.git ../../source/_posts
 echo "Installing hexo plugins..."
 old_path=`pwd`
 cd ../..
-npm install hexo-generator-sitemap --save
-npm install hexo-generator-feed --save
-npm install hexo-generator-search --save
-npm install hexo-deployer-git --save
+npm install
 cd $old_path
 
 echo "Patching hexo-generator-search..."
