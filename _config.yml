@@ -14,10 +14,10 @@ menu:
   RSS: /atom.xml
 
 # Link to your avatar | 填写头像地址
-avatar: https://pic.gaomf.store/global头像2.jpg
+avatar: https://img.gaomf.cn/avatar.jpeg
 
 # Small icon of Your site | 站点小图标地址
-favicon: https://pic.gaomf.store/global头像2.jpg
+favicon: https://img.gaomf.cn/avatar.jpeg
 
 # Internationalization | 主题语言
 ## Change Language in SITE's _config.yml | 在站点配置中切换语言

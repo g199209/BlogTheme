@@ -66,5 +66,5 @@ date: 2019-02-24 18:21:00
 ***
 
 <div class="pic">
-<img src="https://pic.gaomf.store/qrcode_for_gh_a87c6539fd4a_258.jpg">
+<img src="https://img.gaomf.cn/qrcode_for_gh_a87c6539fd4a_258.jpg">
 </div>
