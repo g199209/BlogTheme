@@ -18,7 +18,7 @@ ln ./template.md ../../scaffolds/post.md
 ln ./template.md ../../scaffolds/draft.md
 
 echo "Cloning source posts..."
-rm -r ../../source/_posts
+rm -rf ../../source/_posts
 git clone git@github.com:g199209/BlogMarkdown.git ../../source/_posts
 
 echo "Installing hexo plugins..."
