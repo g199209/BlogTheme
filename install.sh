@@ -3,6 +3,8 @@
 echo "Copying configuration files..."
 rm ../../_config.yml
 ln ./_config_root.yml ../../_config.yml
+rm ../../package.json
+ln ./package.json ../../package.json
 mkdir ../../source/404
 ln ./404.md ../../source/404/404.md
 mkdir ../../source/tags
