@@ -241,7 +241,7 @@ tab_title_change:
 
 # Local Site Search | 本地站内搜索
 ## Insatall below plugin to take effect | 使用搜索需先安装对应插件
-## https://github.com/PaicHyperionDev/hexo-generator-search
+## https://github.com/g199209/hexo-generator-search
 search: 
   on: true
   onload: false

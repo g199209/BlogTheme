@@ -27,8 +27,4 @@ cd ../..
 npm install
 cd $old_path
 
-echo "Patching hexo-generator-search..."
-cat ./search_patch.js >> ../../node_modules/hexo-generator-search/index.js
-cp ./search_template.ejs ../../node_modules/hexo-generator-search/templates/xml.ejs
-
 echo "All Done."
