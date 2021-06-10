@@ -1,5 +1,5 @@
 title: {{ title }}
-permalink: 
+weburl:
 toc: false
 mathjax: false
 fancybox: false
