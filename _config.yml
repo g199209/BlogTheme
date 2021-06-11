@@ -308,7 +308,7 @@ progressBar:
 CDN:
   jquery: /js/jquery.min.js  # 2.2.4
   require: /js/require.min.js  # 2.2.0
-  fontawesome: //gaomf.cn/fontawesome-free-5.15.3-web/css/all.css  # 5.15.3
+  fontawesome: //gaomf.cn/Font-Awesome-4.7.0/css/font-awesome.css  # 4.7
   fancybox_js: /js/jquery.fancybox.min.js  # 2.1.5
   fancybox_css: /css/jquery.fancybox.min.css  # 2.1.5
   animate_css: /css/animate.min.css  # 3.5.1
