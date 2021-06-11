@@ -306,15 +306,15 @@ progressBar:
   color: blue
 
 CDN:
-  jquery: //cdn.bootcss.com/jquery/2.2.4/jquery.min.js
-  require: //cdn.bootcss.com/require.js/2.2.0/require.min.js
-  fontawesome: //cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css
-  fancybox_js: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js
-  fancybox_css: //cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
-  animate_css: //cdn.bootcss.com/animate.css/3.5.1/animate.min.css
-  jquery_ui_js: //cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js
-  jquery_ui_css: //cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css
-  pace_js: //cdn.bootcss.com/pace/1.0.2/pace.min.js
-  clipboard: //cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js
-  mathjax: //cdn.bootcss.com/mathjax/2.6.1/MathJax.js
-  scrollreveal: //cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js
+  jquery: /js/jquery.min.js  # 2.2.4
+  require: /js/require.min.js  # 2.2.0
+  fontawesome: /css/font-awesome.min.css  # 4.6.3
+  fancybox_js: /js/jquery.fancybox.min.js  # 2.1.5
+  fancybox_css: /css/jquery.fancybox.min.css  # 2.1.5
+  animate_css: /css/animate.min.css  # 3.5.1
+  jquery_ui_js: /js/jquery-ui.min.js  # 1.10.4
+  jquery_ui_css: /css/jquery-ui.min.css  # 1.10.4
+  pace_js: /js/pace.min.js  # 1.0.2
+  clipboard: /js/clipboard.min.js  # 1.5.10
+  mathjax: /js/MathJax.js  # 2.6.1
+  scrollreveal: /js/scrollreveal.min.js  # 3.1.4
