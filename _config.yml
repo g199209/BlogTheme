@@ -308,7 +308,7 @@ progressBar:
 CDN:
   jquery: /js/jquery.min.js  # 2.2.4
   require: /js/require.min.js  # 2.2.0
-  fontawesome: /css/font-awesome.min.css  # 4.6.3
+  fontawesome: //gaomf.cn/fontawesome-free-5.15.3-web/css/all.css  # 5.15.3
   fancybox_js: /js/jquery.fancybox.min.js  # 2.1.5
   fancybox_css: /css/jquery.fancybox.min.css  # 2.1.5
   animate_css: /css/animate.min.css  # 3.5.1
@@ -316,5 +316,5 @@ CDN:
   jquery_ui_css: /css/jquery-ui.min.css  # 1.10.4
   pace_js: /js/pace.min.js  # 1.0.2
   clipboard: /js/clipboard.min.js  # 1.5.10
-  mathjax: /js/MathJax.js  # 2.6.1
+  mathjax: //gaomf.cn/js/MathJax-2.7.9/MathJax.js  # 2.7.9
   scrollreveal: /js/scrollreveal.min.js  # 3.1.4
