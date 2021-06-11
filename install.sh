@@ -15,7 +15,7 @@ ln ./wechat.md ../../source/wechat.md
 echo "gaomf.cn" >> ../../source/CNAME
 
 echo "Decrypting enc config..."
-openssl aes256 -base64 -k ${enc_key} -d -in _config_enc -out ../../_config_enc.yml
+openssl aes-256-cbc -base64 -k ${enc_key} -md sha256 -d -in _config_enc -out ../../_config_enc.yml
 
 echo "Copying markdown templates..."
 rm ../../scaffolds/*
