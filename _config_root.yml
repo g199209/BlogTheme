@@ -93,10 +93,5 @@ search:
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
+# Config in _config_enc.yml file
 deploy:
-  type: git
-  repository: 
-    gitcafe: git@git.coding.net:g199209/g199209.git,gitcafe-pages
-    github: git@github.com:g199209/g199209.github.io.git,master
-  
-  

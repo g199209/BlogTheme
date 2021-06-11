@@ -116,12 +116,13 @@ youyan:
   # 友言服务在 Web 环境下运行，普通本地环境无法查看，请部署后在线上测试。
   # website变量用于将多个域名统一到一个域名下
   
-#5、Gitment
+# Gitment
+# Config in _config_enc.yml
 gitment_owner: g199209      #你的 GitHub ID
 gitment_repo: 'g199209.github.io'          #存储评论的 repo
 gitment_oauth:
-  client_id: '813326c14fac583d3c91'           #client ID 
-  client_secret: 'f8dbfe0b2626fa098ec31a165f298a4af93c6535'       #client secret 
+  client_id: 'xxxxxxxxxxxxx'           #client ID 
+  client_secret: 'xxxxxxxxxxxxxxxxxxx'       #client secret 
 
 # >>> Style Customisation 样式自定义 <<<
 
@@ -279,7 +280,8 @@ google_analytics:
 
 # 百度统计 http://sitecenter.baidu.com/sc-web/
 # 查看代码，填入 //hm.baidu.com/hm.js? 之后的内容
-baidu_tongji: 023158b4c9d97942be746fc9f5fde1da
+# 在 _config_enc.yml 文件处配置
+baidu_tongji: xxxxxxxxxx
 
 # 不蒜子网站计数设置
 # http://ibruce.info/2015/04/04/busuanzi/

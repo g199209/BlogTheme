@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
+    "build": "hexo generate --config _config.yml,_config_enc.yml",
+    "clean": "hexo clean --config _config.yml,_config_enc.yml",
+    "deploy": "hexo deploy --config _config.yml,_config_enc.yml",
+    "server": "hexo server --config _config.yml,_config_enc.yml"
   },
   "hexo": {
     "version": "5.4.0"
