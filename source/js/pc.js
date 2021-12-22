@@ -19,7 +19,7 @@ define([], function(){
 
     var slide = function(idx){
         // 修复IE10+切换无效的bug
-		var tmpheight = 0;
+        var tmpheight = 0;
         var $wrap = $(".switch-wrap"),
           transform = [
               '-webkit-transform: translate(-' + idx * 100 + '%, 0);',
@@ -28,27 +28,28 @@ define([], function(){
               '-ms-transform: translate(-' + idx * 100 + '%, 0);',
               'transform: translate(-' + idx * 100 + '%, 0);'
           ];
-		switch (idx) {
-			case 0:
-			tmpheight = $(".switch-part1").height();
-			break;
-			
-			case 1:
-			tmpheight = $(".switch-part2").height();
-			break;
-			
-			case 2:
-			tmpheight = $(".switch-part3").height();
-			break;
-			
-			case 3:
-			tmpheight = $(".switch-part4").height();
-			break;
-		}
-		$(".switch-area").height(tmpheight);
-        $wrap[0].style.cssText = transform.join('');
-        $(".icon-wrap").addClass("hide");
-        $(".icon-wrap").eq(idx).removeClass("hide");
+          switch (idx) {
+            case 0:
+            tmpheight = $(".switch-part1").height();
+            break;
+            
+            case 1:
+            tmpheight = $(".switch-part2").height();
+            break;
+            
+            case 2:
+            tmpheight = $(".switch-part3").height();
+            break;
+            
+            case 3:
+            tmpheight = $(".switch-part4").height();
+            break;
+          }
+          $(".switch-area").height(tmpheight);
+
+          $wrap[0].style.cssText = transform.join('');
+          $(".icon-wrap").addClass("hide");
+          $(".icon-wrap").eq(idx).removeClass("hide");
     }
 
     var bind = function(){
