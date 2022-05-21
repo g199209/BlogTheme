@@ -302,6 +302,9 @@ github_widget: false
 # color: black|blue|green|orange|pink|purple|red|silver|white|yellow|
 progressBar:
   on: true
+  # 是否使用本地 CSS 文件，当前为 blue minimal
+  # 若需修改 type & color，设置为 false，此时使用 bootcss cdn
+  useLocalCSS: true
   type: "minimal"  # Keep Quotes | 保留引号避免出错
   color: blue
 

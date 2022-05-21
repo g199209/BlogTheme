@@ -45,7 +45,11 @@
 
 <% if (theme.progressBar.on) { %>
     <script src="<%- theme.CDN.pace_js %>"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/<%= theme.progressBar.color || 'blue'%>/pace-theme-<%= theme.progressBar.type || 'minimal'%>.css" rel="stylesheet">
+    <% if (theme.progressBar.useLocalCSS) { %>
+      <link href="/css/pace-theme.css" rel="stylesheet">
+    <% } else { %>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/<%= theme.progressBar.color || 'blue'%>/pace-theme-<%= theme.progressBar.type || 'minimal'%>.css" rel="stylesheet">
+    <% } %>
 <% } %>
 
 <%- css('css/style') %>
