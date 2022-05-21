@@ -1,0 +1,24 @@
+# Encryption Configuration
+# Demo file
+
+deploy:
+- type: git
+  repository: 
+    github: xxxxx
+- type: ali-oss
+  region: oss-cn-shanghai
+  bucket: xxxxx
+  accessKeyId: xxxxx
+  accessKeySecret: xxxxx
+  
+theme_config:
+  baidu_tongji: xxxxx
+
+  # Gitment
+  gitment_owner: g199209
+  gitment_repo: 'g199209.github.io'
+  gitment_oauth:
+    client_id: 'xxxxx'
+    # Do not need
+    client_secret: 'xxx'
+  
